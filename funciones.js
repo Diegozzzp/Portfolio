@@ -1,15 +1,18 @@
-window.onload = function(){
-    const loaders = document.getElementById(".loader");
-    loaders.style.visibility = "hidden";
-    loaders.style.opacity = "0";
-    
-    }
+window.onload = function () {
+  const loader = document.querySelector(".loader");
+  if (loader) {
+    loader.style.visibility = "hidden";
+    loader.style.opacity = "0";
+  }
+};
 
-    window.addEventListener('scroll', function() {
-        const parallax = document.querySelector('.fondo-opacity');
-        parallax.style.backgroundPositionY = -(window.scrollY * 0.5) + 'px';
-    });
-    
+window.addEventListener('scroll', function () {
+  const parallax = document.querySelector('.fondo-opacity');
+  if (parallax) {
+    parallax.style.backgroundPositionY = -(window.scrollY * 0.5) + 'px';
+  }
+});
+
 
 // Seleccionamos todas las tarjetas que queremos animar
 const cards = document.querySelectorAll('.card');
@@ -36,4 +39,13 @@ const observer = new IntersectionObserver((entries, observer) => {
 // Observamos cada tarjeta
 cards.forEach(card => {
   observer.observe(card);
+});
+
+// Selecciona el botón de hamburguesa y el menú móvil
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+// Evento para abrir/cerrar el menú hamburguesa
+menuToggle.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
 });
