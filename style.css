@@ -1,0 +1,34 @@
+body {
+    font-family: "Roboto", sans-serif;
+    background-image: url("./images/fondo.jpg");
+    background-attachment: fixed; /* Esto fija la imagen de fondo en su lugar */
+    background-size: cover;
+    width: 100%;
+    height: 100vh; /* Cambia a 100vh para cubrir toda la altura de la ventana */
+    background-color: rgba(9, 14, 32, 0.5); /* Ajusta el color de fondo con opacidad */
+    color: white;
+    margin: 0; /* Elimina el margen predeterminado del body */
+}
+
+.fondo-opacity {
+    height: 100vh; /* Cambia a 100vh para cubrir toda la altura de la ventana */
+    width: 100%;
+    background-color: rgba(9, 14, 32, 0.5); /* Ajusta el color de fondo con opacidad */
+}
+
+@keyframes spin {
+    to { transform: rotate(-1turn); }
+}
+
+#girar {
+    animation: spin 60s linear infinite;
+}
+
+#non-girar {
+    animation: spin 60s linear infinite;
+    animation-direction: reverse;
+}
+
+button {
+    animation-direction: reverse;
+}
