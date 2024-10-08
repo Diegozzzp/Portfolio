@@ -41,11 +41,12 @@ cards.forEach(card => {
   observer.observe(card);
 });
 
-// Selecciona el botón de hamburguesa y el menú móvil
+// Manejo del menú hamburguesa
 const menuToggle = document.getElementById('menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
 
-// Evento para abrir/cerrar el menú hamburguesa
 menuToggle.addEventListener('click', () => {
+  // Añadimos/removemos clases para mostrar/ocultar el menú
   mobileMenu.classList.toggle('hidden');
+  mobileMenu.classList.toggle('translate-y-full');
 });
