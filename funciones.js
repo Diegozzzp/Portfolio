@@ -41,12 +41,13 @@ cards.forEach(card => {
   observer.observe(card);
 });
 
-// Manejo del menú hamburguesa
+// Manejo del menú hamburguesa (solo si existen los elementos)
 const menuToggle = document.getElementById('menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
 
-menuToggle.addEventListener('click', () => {
-  // Añadimos/removemos clases para mostrar/ocultar el menú
-  mobileMenu.classList.toggle('hidden');
-  mobileMenu.classList.toggle('translate-y-full');
-});
+if (menuToggle && mobileMenu) {
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('translate-y-full');
+  });
+}
