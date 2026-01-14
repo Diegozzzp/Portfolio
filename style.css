@@ -64,3 +64,34 @@ html {
     color: #ffffff !important;
     border-color: transparent !important;
 }
+
+/* Proyectos: que las tarjetas ocupen todo el ancho de la columna */
+#proyectos .card {
+    width: 100% !important;
+}
+
+/* Experiencia: centrar línea vertical (md+), mantener a la izquierda en móviles */
+@media (max-width: 639px) {
+  #experiencia .wrap > div.border-2.absolute {
+    left: 20px !important;
+    transform: none !important;
+  }
+}
+@media (min-width: 768px) {
+  #experiencia .wrap > div.border-2.absolute {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
+/* Experiencia: efecto vidrio sutil en tarjetas */
+#experiencia .wrap .rounded-lg.shadow-xl {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Experiencia: anillo sutil en marcadores */
+#experiencia .wrap .w-8.h-8.rounded-full {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
