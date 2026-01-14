@@ -3,7 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
+    <title>Diego Mejías — Portfolio</title>
+    <meta name="description" content="Desarrollador web full stack. Proyectos, experiencia y contacto." />
+    <meta name="theme-color" content="#0B1221" />
+    <meta property="og:title" content="Portfolio — Diego Mejías" />
+    <meta property="og:description" content="Desarrollador web full stack. Proyectos, experiencia y contacto." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./images/foto.JPG" />
+    <meta property="og:url" content="https://diego.lexpin.net" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,6 +58,7 @@
   </head>
   
   <body class="w-full h-full m-0 sm: w-full h-full">
+    <div class="loader"><div class="spinner"></div></div>
     <div class="fondo">
       <div class="fondo-opacity">
         
@@ -291,9 +299,7 @@
                 <div
                   class="group-hover:duration-400 relative rounded-2xl w-72 h-36 bg-zinc-800 text-gray-50 flex flex-col justify-center items-center gap-1 before:-skew-x-12 before:rounded-2xl before:absolute before:content[''] before:bg-neutral-700 before:right-3 before:top-0 before:w-72 before:h-32 before:-z-10"
                 >
-                  <span class="text-4xl font-bold cursor-default"
-                    >Programador Jr</span
-                  >
+                  <span class="text-4xl font-black cursor-default bg-clip-text text-transparent bg-gradient-to-r from-teal-400 via-purple-400 to-pink-400"><span id="typed-text"></span><span class="ml-1 text-white animate__animated animate__flash animate__infinite">|</span></span>
                   <p class="text-amber-300 font-thin cursor-default">
                     - Hola! Soy Diego. Programador Web -
                   </p>
@@ -312,9 +318,11 @@
               <br />
               innovador en busca de la mejor solución para tu pagina web.
             </p>
-            <a href="./CV%20ACTU-DIEGO.pdf" download class="mt-6 inline-block bg-teal-500 hover:bg-teal-600 text-white font-semibold px-5 py-2 rounded shadow">
-              Descargar CV
-            </a>
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              <a href="#proyectos" class="inline-block bg-teal-500 hover:bg-teal-600 text-white font-semibold px-5 py-2 rounded shadow">Ver Proyectos</a>
+              <a href="#contact" class="inline-block bg-purple-500 hover:bg-purple-600 text-white font-semibold px-5 py-2 rounded shadow">Contactar</a>
+              <a href="./CV%20ACTU-DIEGO.pdf" download class="inline-block bg-gray-700 hover:bg-gray-600 text-white font-semibold px-5 py-2 rounded shadow">Descargar CV</a>
+            </div>
           </div>
         </section>
       </div>
@@ -322,17 +330,26 @@
         <h2 class="text-center text-4xl mt-12 mb-12 font-bold">
           Mis Proyectos
         </h2>
+        <div class="flex flex-wrap items-center justify-center gap-3 mb-8" id="project-filters">
+          <button class="filter-btn px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-sm" data-filter="all">Todos</button>
+          <button class="filter-btn px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-sm" data-filter="frontend">Frontend</button>
+          <button class="filter-btn px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-sm" data-filter="backend">Backend</button>
+          <button class="filter-btn px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-sm" data-filter="fullstack">Fullstack</button>
+          <button class="filter-btn px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-sm" data-filter="design">Diseño</button>
+        </div>
         <div
           class="grid grid-cols-1 lg:grid-cols-2 justify-items-center content-center gap-12"
         >
           <!-- Tarjeta del Proyecto 1 -->
           <div
-            class=" rounded-2xl shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-xl w-96 card bg-white/5 border border-white/10 overflow-hidden"
+            class=" project-card rounded-2xl shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-xl w-96 card bg-white/5 border border-white/10 overflow-hidden"
+            data-category="fullstack design"
           >
             <img
               src="./images/Kiwi Music.png"
               alt="Kiwi Music"
               class="w-full h-96 object-cover transition-opacity duration-300"
+              loading="lazy" decoding="async"
             />
             <div
               class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm ring-1 ring-white/10 flex flex-col justify-between p-6 opacity-0 transition-opacity duration-300 hover:opacity-100"
@@ -497,12 +514,14 @@
             </div>
           </div>
           <div
-            class=" rounded-2xl shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-xl w-96 card bg-white/5 border border-white/10 overflow-hidden"
+            class=" project-card rounded-2xl shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-xl w-96 card bg-white/5 border border-white/10 overflow-hidden"
+            data-category="backend"
           >
             <img
               src="./images/registro.png"
               alt="Kiwi Music"
               class="w-full h-96 object-cover transition-opacity duration-300"
+              loading="lazy" decoding="async"
             />
             <div
               class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm ring-1 ring-white/10 flex flex-col justify-between p-6 opacity-0 transition-opacity duration-300 hover:opacity-100"
@@ -589,12 +608,14 @@
             </div>
           </div>
           <div
-            class=" rounded-2xl shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-xl w-96 card bg-white/5 border border-white/10 overflow-hidden"
+            class=" project-card rounded-2xl shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-xl w-96 card bg-white/5 border border-white/10 overflow-hidden"
+            data-category="frontend"
           >
             <img
               src="./images/pokeapi.png"
               alt="Kiwi Music"
               class="w-full h-96 object-cover transition-opacity duration-300"
+              loading="lazy" decoding="async"
             />
             <div
               class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm ring-1 ring-white/10 flex flex-col justify-between p-6 opacity-0 transition-opacity duration-300 hover:opacity-100"
@@ -675,12 +696,14 @@
             </div>
           </div>
           <div
-            class=" rounded-2xl shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-xl w-96 card bg-white/5 border border-white/10 overflow-hidden"
+            class=" project-card rounded-2xl shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-xl w-96 card bg-white/5 border border-white/10 overflow-hidden"
+            data-category="frontend"
           >
             <img
               src="./images/Instagram.png"
               alt="Kiwi Music"
               class="w-full h-96 object-cover transition-opacity duration-300"
+              loading="lazy" decoding="async"
             />
             <div
               class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm ring-1 ring-white/10 flex flex-col justify-between p-6 opacity-0 transition-opacity duration-300 hover:opacity-100"
@@ -744,7 +767,7 @@
             </div>
           </div>
           <!-- Nueva Tarjeta: Portafolio Fotografa -->
-          <div class=" rounded-2xl shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-xl w-96 card bg-white/5 border border-white/10 overflow-hidden">
+          <div class=" project-card rounded-2xl shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-xl w-96 card bg-white/5 border border-white/10 overflow-hidden" data-category="frontend design">
             <img src="./images/Ana-portafolio.png" alt="Portafolio Fotografa" class="w-full h-96 object-cover transition-opacity duration-300" loading="lazy" />
             <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm ring-1 ring-white/10 flex flex-col justify-between p-6 opacity-0 transition-opacity duration-300 hover:opacity-100">
               <div class="flex items-start justify-between">
@@ -803,7 +826,7 @@
                   Desarrolle APIs con Node.js para la gestión de bases de datos. Apliqué principios de programación limpia y creé endpoints eficientes.
                 </p>
                 <span class="text-amber-300 mt-2 block">Certificación: Lexpin</span>
-                <img src="./images/nodejs.png" alt="Certificado Nodejs" class="mt-4 w-full rounded-lg" />
+                <img src="./images/nodejs.png" alt="Certificado Nodejs" class="mt-4 w-full rounded-lg" loading="lazy" decoding="async" />
               </div>
             </div>
           
@@ -815,7 +838,7 @@
                   Trabajé en la creación de interfaces de usuario dinámicas utilizando React.js, mejorando la experiencia del usuario con animaciones y transiciones modernas.
                 </p>
                 <span class="text-amber-300 mt-2 block">Proyecto destacado: Kiwi Music Store</span>
-                <img src="./images/Kiwi Music.png" alt="Kiwi Music Project" class="mt-4 w-full rounded-lg" />
+                <img src="./images/Kiwi Music.png" alt="Kiwi Music Project" class="mt-4 w-full rounded-lg" loading="lazy" decoding="async" />
               </div>
               <div class="z-20 flex items-center order-1 bg-red-700 shadow-xl w-8 h-8 rounded-full">
                 <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
@@ -835,7 +858,7 @@
                   Completé proyectos completos desde el diseño hasta el desarrollo de la lógica backend. Incluí autenticación de usuarios y paneles de administración usando Node.js y MongoDB.
                 </p>
                 <span class="text-amber-300 mt-2 block">Certificación: Fullstack Web Developer</span>
-                <img src="./images/certificado.png" alt="Certificado Fullstack" class="mt-4 w-full rounded-lg" />
+                <img src="./images/certificado.png" alt="Certificado Fullstack" class="mt-4 w-full rounded-lg" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
@@ -1023,12 +1046,17 @@
     <i class="fas fa-envelope"></i>
   </a>
 </div>
-
+        <button id="copy-email" class="mt-6 px-4 py-2 rounded bg-white/10 hover:bg-white/20 border border-white/20 text-white">Copiar correo</button>
+        <p id="copy-toast" class="text-green-400 text-sm mt-2 hidden">Correo copiado</p>
+        
         </div>
       </div>
     </section>
     
     </div>
+    <button id="back-to-top" class="fixed bottom-6 right-6 z-50 bg-teal-500 hover:bg-teal-600 text-white p-3 rounded-full shadow-lg opacity-0 pointer-events-none translate-y-8 transition-all duration-300" aria-label="Volver arriba">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
   </body>
   <script src="./funciones.js"></script>
 </html>

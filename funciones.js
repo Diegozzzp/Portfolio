@@ -1,8 +1,65 @@
 window.onload = function () {
-  const loader = document.querySelector(".loader");
+  // Ocultar loader una vez cargado
+  const loader = document.querySelector('.loader');
   if (loader) {
-    loader.style.visibility = "hidden";
-    loader.style.opacity = "0";
+    loader.style.opacity = '0';
+    loader.style.visibility = 'hidden';
+  }
+
+  // Texto tipo máquina en héroe
+  const typedEl = document.getElementById('typed-text');
+  if (typedEl) {
+    const phrases = ['Programador Jr', 'Full Stack Dev', 'Creador de Soluciones'];
+    let i = 0, j = 0, deleting = false;
+    const type = () => {
+      const current = phrases[i];
+      if (!deleting) {
+        typedEl.textContent = current.slice(0, j++);
+        if (j > current.length + 8) deleting = true; // pausa
+      } else {
+        typedEl.textContent = current.slice(0, j--);
+        if (j < 0) { deleting = false; i = (i + 1) % phrases.length; }
+      }
+      setTimeout(type, deleting ? 50 : 90);
+    };
+    type();
+  }
+
+  // Filtros de proyectos
+  const filterContainer = document.getElementById('project-filters');
+  const projectCards = document.querySelectorAll('.project-card');
+  if (filterContainer && projectCards.length) {
+    filterContainer.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      const filter = btn.getAttribute('data-filter');
+      // estado activo
+      filterContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // filtrar
+      projectCards.forEach(card => {
+        const cats = (card.getAttribute('data-category') || '').split(/\s+/);
+        const visible = filter === 'all' || cats.includes(filter);
+        card.style.display = visible ? '' : 'none';
+      });
+    });
+  }
+
+  // Copiar correo y toast
+  const copyBtn = document.getElementById('copy-email');
+  const toast = document.getElementById('copy-toast');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('adanmejias908@gmail.com');
+        if (toast) {
+          toast.classList.remove('hidden');
+          setTimeout(() => toast.classList.add('hidden'), 1600);
+        }
+      } catch (err) {
+        console.error('No se pudo copiar el correo', err);
+      }
+    });
   }
 };
 
@@ -10,6 +67,14 @@ window.addEventListener('scroll', function () {
   const parallax = document.querySelector('.fondo-opacity');
   if (parallax) {
     parallax.style.backgroundPositionY = -(window.scrollY * 0.5) + 'px';
+  }
+  // Mostrar/ocultar botón volver arriba
+  const topBtn = document.getElementById('back-to-top');
+  if (topBtn) {
+    const show = window.scrollY > 400;
+    topBtn.style.opacity = show ? '1' : '0';
+    topBtn.style.pointerEvents = show ? 'auto' : 'none';
+    topBtn.style.transform = show ? 'translateY(0)' : 'translateY(32px)';
   }
 });
 
@@ -51,3 +116,9 @@ if (menuToggle && mobileMenu) {
     mobileMenu.classList.toggle('translate-y-full');
   });
 }
+
+// Volver arriba
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('#back-to-top');
+  if (btn) window.scrollTo({ top: 0, behavior: 'smooth' });
+});
