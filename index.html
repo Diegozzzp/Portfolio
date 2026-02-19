@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -73,7 +73,7 @@
         
           <!-- Links para pantallas grandes -->
           <div class="hidden md:flex gap-x-8 font-mono items-center text-white">
-            <a href="#sobre-mi" class="hover:text-teal-400 transition-colors duration-300">Sobre mi</a>
+            <a href="#sobre-mi" class="hover:text-teal-400 transition-colors duration-300">Sobre mí</a>
             <a href="#proyectos" class="hover:text-teal-400 transition-colors duration-300">Proyectos</a>
             <a href="#experiencia" class="hover:text-teal-400 transition-colors duration-300">Experiencia</a>
             <a href="./CV%20ACTU-DIEGO.pdf" download class="hover:text-teal-400 transition-colors duration-300">CV</a>
@@ -309,14 +309,14 @@
           </div>
           <div class="flex flex-col items-center mb-24">
             <h2 class="text-3xl font-bold text-center text-white mb-8">
-              Sobre mi
+              Sobre mí
             </h2>
             <p class="text-white text-start max-w-lg">
-              Apasionado por el desarrollo, el aprendizaje y la tecnologia.
+              Apasionado por el desarrollo, el aprendizaje y la tecnología.
               <br />
-              con conocimiento en backend y frontend en diferentes lenguajes y
+              Con conocimientos en backend y frontend en diferentes lenguajes y
               <br />
-              innovador en busca de la mejor solución para tu pagina web.
+              innovador en busca de la mejor solución para tu página web.
             </p>
             <div class="mt-6 flex flex-wrap items-center gap-3">
               <a href="#proyectos" class="inline-block bg-teal-500 hover:bg-teal-600 text-white font-semibold px-5 py-2 rounded shadow">Ver Proyectos</a>
@@ -786,6 +786,37 @@
               <h3 class="text-2xl font-semibold text-white text-center">Portafolio Fotografa</h3>
             </div>
           </div>
+          <!-- Nueva Tarjeta: Rick and Morty Proyecto -->
+          <div class=" project-card rounded-2xl shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-xl w-96 card bg-white/5 border border-white/10 overflow-hidden" data-category="frontend" data-slug="rick-morty-app">
+            <img src="./images/ricky-mort-proyecto.png" alt="Rick and Morty Proyecto" class="w-full h-96 object-cover transition-opacity duration-300" loading="lazy" decoding="async" />
+            <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm ring-1 ring-white/10 flex flex-col justify-between p-6 opacity-0 transition-opacity duration-300 hover:opacity-100">
+              <div class="flex flex-col">
+                <p class="text-xl mt-4 mb-2">Tecnologias:</p>
+                <div class="flex gap-4 items-center">
+                  <svg viewBox="0 0 256 154" width="36" height="36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
+                    <defs>
+                      <linearGradient x1="-2.778%" y1="32%" x2="100%" y2="67.556%" id="gradient">
+                        <stop stop-color="#2298BD" offset="0%"></stop>
+                        <stop stop-color="#0ED7B5" offset="100%"></stop>
+                      </linearGradient>
+                    </defs>
+                    <path d="M128 0C93.867 0 72.533 17.067 64 51.2 76.8 34.133 91.733 27.733 108.8 32c9.737 2.434 16.697 9.499 24.401 17.318C145.751 62.057 160.275 76.8 192 76.8c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C174.249 14.743 159.725 0 128 0ZM64 76.8C29.867 76.8 8.533 93.867 0 128c12.8-17.067 27.733-23.467 44.8-19.2 9.737 2.434 16.697 9.499 24.401 17.318C81.751 138.857 96.275 153.6 128 153.6c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C110.249 91.543 95.725 76.8 64 76.8Z" fill="url(#gradient)"></path>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 33" width="36" height="36">
+                    <g fill="none" fill-rule="evenodd">
+                      <path fill="#2298BD" d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-3.3 2.7 1.35 4.05 4.05 4.5 6.75.9 5.4-2.7 9-7.2 9-3.6 0-5.85-1.8-6.75-4.5-.9-2.7.9-5.4 3.6-6.3C15.3 11.7 17.55 12.6 18 15c.9 4.5-2.7 7.2-6.3 7.2-4.05 0-6.75-2.7-6.75-6.3 0-3.15 1.8-5.85 4.5-7.2C6.3 7.2 3.6 4.5 3.6 0H0c0 7.2 3.6 11.7 10.8 13.5C6.3 15.3 4.05 16.65 4.05 19.8c0 3.6 2.7 6.3 6.3 6.3 4.05 0 7.2-2.7 7.2-6.3.45-3.15-1.35-5.85-4.05-7.2 2.7-1.35 5.4-2.25 7.65-1.8 4.5.9 6.75 4.5 6.75 9 0 5.4-3.6 9.9-9 9.9-7.2 0-11.7-3.6-13.5-10.8 2.7 3.6 5.85 4.95 9.45 3.3 2.7-1.35 4.05-4.05 4.5-6.75.9-5.4-2.7-9-7.2-9-3.6 0-5.85 1.8-6.75 4.5-.9 2.7.9 5.4 3.6 6.3C15.3 21.3 17.55 20.4 18 18c-.9-4.5 2.7-7.2 6.3-7.2 4.05 0 6.75 2.7 6.75 6.3 0 3.15-1.8 5.85-4.5 7.2C47.7 25.8 50.4 28.5 50.4 33H54c0-7.2-3.6-11.7-10.8-13.5 4.5-1.8 6.75-4.05 6.75-7.65 0-3.6-2.7-6.3-6.3-6.3-4.05 0-7.2 2.7-7.2 6.3-.45 3.15 1.35 5.85 4.05 7.2z"/>
+                    </g>
+                  </svg>
+                  <i class="fas fa-globe text-3xl text-blue-400"></i>
+                </div>
+                <a href="https://magnificent-unicorn-b5f2b0.netlify.app" class="bg-blue-500 text-white px-2 py-2 rounded mb-2 block text-center hover:bg-blue-600 mt-24">Ver Proyecto</a>
+                <a href="https://github.com/Diegozzzp/RickmortysApi" class="bg-blue-500 text-white px-2 py-2 rounded mb-2 block text-center hover:bg-blue-600">Ver Codigo</a>
+              </div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 p-6">
+              <h3 class="text-2xl font-semibold text-white text-center">Rick and Morty Proyecto</h3>
+            </div>
+          </div>
         </div>
       </section>
       <section id="experiencia" class="py-16 bg-gray-900 text-white">
@@ -809,7 +840,7 @@
                 </p>
               </div>
               <div class="z-20 flex items-center order-1 bg-purple-700 shadow-xl w-8 h-8 rounded-full">
-                <h1 class="mx-auto text-white font-semibold text-lg">4</h1>
+                <h1 class="mx-auto text-white font-semibold text-lg">1</h1>
               </div>
               <div class="order-1 w-10/12 sm:w-5/12"></div>
             </div>
@@ -818,7 +849,7 @@
             <div class="mb-8 flex flex-col sm:flex-row justify-between items-center w-full right-timeline">
               <div class="order-1 w-10/12 sm:w-5/12"></div>
               <div class="z-20 flex items-center order-1 bg-blue-700 shadow-xl w-8 h-8 rounded-full">
-                <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
+                <h1 class="mx-auto font-semibold text-lg text-white">2</h1>
               </div>
               <div class="order-1 bg-blue-500 rounded-lg shadow-xl w-10/12 sm:w-5/12 px-6 py-4">
                 <h3 class="mb-3 font-bold text-white text-xl">Desarrollo Backend en Nodejs</h3>
@@ -841,7 +872,7 @@
                 <img src="./images/Kiwi Music.png" alt="Kiwi Music Project" class="mt-4 w-full rounded-lg" loading="lazy" decoding="async" />
               </div>
               <div class="z-20 flex items-center order-1 bg-red-700 shadow-xl w-8 h-8 rounded-full">
-                <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
+                <h1 class="mx-auto text-white font-semibold text-lg">3</h1>
               </div>
               <div class="order-1 w-10/12 sm:w-5/12"></div>
             </div>
@@ -850,7 +881,7 @@
             <div class="mb-8 flex flex-col sm:flex-row justify-between items-center w-full right-timeline">
               <div class="order-1 w-10/12 sm:w-5/12"></div>
               <div class="z-20 flex items-center order-1 bg-green-700 shadow-xl w-8 h-8 rounded-full">
-                <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
+                <h1 class="mx-auto font-semibold text-lg text-white">4</h1>
               </div>
               <div class="order-1 bg-green-500 rounded-lg shadow-xl w-10/12 sm:w-5/12 px-6 py-4">
                 <h3 class="mb-3 font-bold text-white text-xl">Desarrollo Fullstack</h3>

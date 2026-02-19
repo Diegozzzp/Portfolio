@@ -25,6 +25,41 @@ window.onload = function () {
     type();
   }
 
+  // Inyectar proyecto Rick & Morty (React + Tailwind + API externa)
+  try {
+    const grid = document.querySelector('#proyectos .grid.grid-cols-1');
+    if (grid && !grid.querySelector('[data-slug="rick-morty-app"]')) {
+      const cardHtml = `
+        <div class=" project-card rounded-2xl shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-xl w-96 card bg-white/5 border border-white/10 overflow-hidden" data-category="frontend" data-slug="rick-morty-app">
+          <img src="./images/ricky-mort-proyecto.png" alt="Rick &amp; Morty App" class="w-full h-96 object-cover transition-opacity duration-300" loading="lazy" decoding="async" />
+          <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm ring-1 ring-white/10 flex flex-col justify-between p-6 opacity-0 transition-opacity duration-300 hover:opacity-100">
+            <div class="flex items-start justify-between">
+              <div class="flex gap-2">
+                <span class="px-2 py-1 rounded-full text-xs bg-white/10 border border-white/20">React</span>
+                <span class="px-2 py-1 rounded-full text-xs bg-white/10 border border-white/20">Tailwind</span>
+                <span class="px-2 py-1 rounded-full text-xs bg-white/10 border border-white/20">API externa</span>
+              </div>
+              <a href="https://magnificent-unicorn-b5f2b0.netlify.app" target="_blank" rel="noopener noreferrer" class="text-white/90 hover:text-white text-xl">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+            <a href="https://magnificent-unicorn-b5f2b0.netlify.app" target="_blank" rel="noopener noreferrer" class="bg-blue-500 text-white px-2 py-2 rounded mb-2 block text-center hover:bg-blue-600 mt-24">Ver Proyecto</a>
+            <a href="https://github.com/Diegozzzp/RickmortysApi" target="_blank" rel="noopener noreferrer" class="bg-blue-500 text-white px-2 py-2 rounded mb-2 block text-center hover:bg-blue-600">Ver Codigo</a>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 p-6">
+            <h3 class="text-2xl font-semibold text-white text-center">Rick &amp; Morty App</h3>
+          </div>
+        </div>`;
+      grid.insertAdjacentHTML('beforeend', cardHtml);
+      const newCard = grid.querySelector('[data-slug="rick-morty-app"]');
+      if (newCard && typeof observer !== 'undefined') {
+        try { observer.observe(newCard); } catch {}
+      }
+    }
+  } catch (e) {
+    console.error('No se pudo insertar la tarjeta Rick & Morty:', e);
+  }
+
   // Filtros de proyectos
   const filterContainer = document.getElementById('project-filters');
   const projectCards = document.querySelectorAll('.project-card');
