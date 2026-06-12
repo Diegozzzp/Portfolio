@@ -6,10 +6,10 @@ window.onload = function () {
     loader.style.visibility = 'hidden';
   }
 
-  // Texto tipo máquina en héroe
+  // Texto tipo maquina en heroe
   const typedEl = document.getElementById('typed-text');
   if (typedEl) {
-    const phrases = ['Programador Jr', 'Full Stack Dev', 'Creador de Soluciones'];
+    const phrases = ['Full Stack Developer', 'Automatizacion con IA', 'Soluciones que ahorran tiempo'];
     let i = 0, j = 0, deleting = false;
     const type = () => {
       const current = phrases[i];
@@ -103,7 +103,7 @@ window.addEventListener('scroll', function () {
   if (parallax) {
     parallax.style.backgroundPositionY = -(window.scrollY * 0.5) + 'px';
   }
-  // Mostrar/ocultar botón volver arriba
+  // Mostrar/ocultar boton volver arriba
   const topBtn = document.getElementById('back-to-top');
   if (topBtn) {
     const show = window.scrollY > 400;
@@ -127,8 +127,8 @@ const options = {
 const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      // Agrega las clases de animación de Animate.css cuando la tarjeta es visible
-      entry.target.classList.add('animate__fadeInLeft');  // Puedes cambiar esta animación por la que desees
+      // Agrega las clases de animacion de Animate.css cuando la tarjeta es visible
+      entry.target.classList.add('animate__fadeInLeft');  // Puedes cambiar esta animacion por la que desees
       entry.target.classList.add('animate__animated');
       // Una vez que la tarjeta ha sido animada, deja de observarla
       observer.unobserve(entry.target);
@@ -141,7 +141,7 @@ cards.forEach(card => {
   observer.observe(card);
 });
 
-// Manejo del menú hamburguesa (solo si existen los elementos)
+// Manejo del menu hamburguesa (solo si existen los elementos)
 const menuToggle = document.getElementById('menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
 
@@ -157,3 +157,5 @@ document.addEventListener('click', (e) => {
   const btn = e.target.closest('#back-to-top');
   if (btn) window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+

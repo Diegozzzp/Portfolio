@@ -70,7 +70,7 @@ html {
     width: 100% !important;
 }
 
-/* Experiencia: centrar línea vertical (md+), mantener a la izquierda en móviles */
+/* Experiencia: centrar linea vertical (md+), mantener a la izquierda en moviles */
 @media (max-width: 639px) {
   #experiencia .wrap > div.border-2.absolute {
     left: 20px !important;
@@ -95,3 +95,230 @@ html {
 #experiencia .wrap .w-8.h-8.rounded-full {
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
 }
+
+/* Visual refresh 2026 */
+:root {
+  --ink: #f8fafc;
+  --muted: #cbd5e1;
+  --panel: rgba(15, 23, 42, 0.78);
+  --line: rgba(148, 163, 184, 0.22);
+  --teal: #2dd4bf;
+  --indigo: #818cf8;
+  --rose: #fb7185;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #070b16;
+  background-image:
+    linear-gradient(180deg, rgba(7, 11, 22, 0.1), rgba(7, 11, 22, 0.92)),
+    url("./images/fondo.jpg");
+}
+
+.fondo-opacity {
+  min-height: 100vh;
+  height: auto;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(45, 212, 191, 0.14), transparent 32%),
+    linear-gradient(135deg, rgba(7, 11, 22, 0.82), rgba(15, 23, 42, 0.72));
+}
+
+nav {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+#sobre-mi {
+  min-height: calc(100vh - 4rem);
+  gap: 2.5rem;
+}
+
+#sobre-mi > div:last-child {
+  align-items: center;
+  padding: 2rem;
+  border: 1px solid var(--line);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.72), rgba(30, 41, 59, 0.48));
+  border-radius: 24px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(14px);
+}
+
+@media (min-width: 1024px) {
+  #sobre-mi > div:last-child {
+    align-items: flex-start;
+  }
+}
+
+.portfolio-eyebrow {
+  color: var(--teal);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .portfolio-eyebrow { text-align: left; }
+}
+
+.portfolio-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  width: min(100%, 36rem);
+}
+
+.portfolio-metrics div {
+  padding: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.portfolio-metrics strong,
+.portfolio-metrics span {
+  display: block;
+}
+
+.portfolio-metrics strong {
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+.portfolio-metrics span {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.portfolio-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.92rem;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.portfolio-btn:hover {
+  transform: translateY(-2px);
+}
+
+.portfolio-btn-primary {
+  background: var(--teal);
+  color: #042f2e;
+}
+
+.portfolio-btn-secondary {
+  background: rgba(129, 140, 248, 0.18);
+  color: #e0e7ff;
+  border: 1px solid rgba(129, 140, 248, 0.35);
+}
+
+.portfolio-btn-ghost {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+#proyectos,
+#experiencia,
+#contact {
+  position: relative;
+  background: #0b1220 !important;
+}
+
+#proyectos h2,
+#experiencia h2,
+#contact h2 {
+  letter-spacing: 0;
+}
+
+.project-card {
+  position: relative;
+  border-radius: 18px !important;
+  background: var(--panel) !important;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.25) !important;
+}
+
+.project-card img {
+  height: 22rem !important;
+}
+
+.project-card:hover {
+  transform: translateY(-6px) !important;
+}
+
+#project-filters .filter-btn {
+  min-height: 40px;
+}
+
+#experiencia .container,
+#proyectos {
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+#experiencia .wrap .rounded-lg.shadow-xl {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.72)) !important;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 18px;
+}
+
+.experience-card-featured {
+  box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.18), 0 24px 80px rgba(45, 212, 191, 0.12) !important;
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  color: #dffcf8;
+  background: rgba(45, 212, 191, 0.12);
+  border: 1px solid rgba(45, 212, 191, 0.25);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.skill-highlight {
+  border: 1px solid rgba(45, 212, 191, 0.18);
+  background: rgba(45, 212, 191, 0.045);
+}
+
+#experiencia .grid > div {
+  min-height: 165px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(15, 23, 42, 0.55);
+}
+
+#contact {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 640px) {
+  #sobre-mi {
+    padding: 1.25rem !important;
+  }
+
+  #sobre-mi > div:last-child {
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .portfolio-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card img {
+    height: 18rem !important;
+  }
+}
+
