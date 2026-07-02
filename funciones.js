@@ -1,161 +1,202 @@
-window.onload = function () {
-  // Ocultar loader una vez cargado
-  const loader = document.querySelector('.loader');
-  if (loader) {
-    loader.style.opacity = '0';
-    loader.style.visibility = 'hidden';
-  }
-
-  // Texto tipo maquina en heroe
-  const typedEl = document.getElementById('typed-text');
-  if (typedEl) {
-    const phrases = ['Full Stack Developer', 'Automatizacion con IA', 'Soluciones que ahorran tiempo'];
-    let i = 0, j = 0, deleting = false;
-    const type = () => {
-      const current = phrases[i];
-      if (!deleting) {
-        typedEl.textContent = current.slice(0, j++);
-        if (j > current.length + 8) deleting = true; // pausa
-      } else {
-        typedEl.textContent = current.slice(0, j--);
-        if (j < 0) { deleting = false; i = (i + 1) % phrases.length; }
-      }
-      setTimeout(type, deleting ? 50 : 90);
-    };
-    type();
-  }
-
-  // Inyectar proyecto Rick & Morty (React + Tailwind + API externa)
-  try {
-    const grid = document.querySelector('#proyectos .grid.grid-cols-1');
-    if (grid && !grid.querySelector('[data-slug="rick-morty-app"]')) {
-      const cardHtml = `
-        <div class=" project-card rounded-2xl shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-xl w-96 card bg-white/5 border border-white/10 overflow-hidden" data-category="frontend" data-slug="rick-morty-app">
-          <img src="./images/ricky-mort-proyecto.png" alt="Rick &amp; Morty App" class="w-full h-96 object-cover transition-opacity duration-300" loading="lazy" decoding="async" />
-          <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm ring-1 ring-white/10 flex flex-col justify-between p-6 opacity-0 transition-opacity duration-300 hover:opacity-100">
-            <div class="flex items-start justify-between">
-              <div class="flex gap-2">
-                <span class="px-2 py-1 rounded-full text-xs bg-white/10 border border-white/20">React</span>
-                <span class="px-2 py-1 rounded-full text-xs bg-white/10 border border-white/20">Tailwind</span>
-                <span class="px-2 py-1 rounded-full text-xs bg-white/10 border border-white/20">API externa</span>
-              </div>
-              <a href="https://magnificent-unicorn-b5f2b0.netlify.app" target="_blank" rel="noopener noreferrer" class="text-white/90 hover:text-white text-xl">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
-            </div>
-            <a href="https://magnificent-unicorn-b5f2b0.netlify.app" target="_blank" rel="noopener noreferrer" class="bg-blue-500 text-white px-2 py-2 rounded mb-2 block text-center hover:bg-blue-600 mt-24">Ver Proyecto</a>
-            <a href="https://github.com/Diegozzzp/RickmortysApi" target="_blank" rel="noopener noreferrer" class="bg-blue-500 text-white px-2 py-2 rounded mb-2 block text-center hover:bg-blue-600">Ver Codigo</a>
-          </div>
-          <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 p-6">
-            <h3 class="text-2xl font-semibold text-white text-center">Rick &amp; Morty App</h3>
-          </div>
-        </div>`;
-      grid.insertAdjacentHTML('beforeend', cardHtml);
-      const newCard = grid.querySelector('[data-slug="rick-morty-app"]');
-      if (newCard && typeof observer !== 'undefined') {
-        try { observer.observe(newCard); } catch {}
-      }
+﻿const projects = [
+  {
+    title: "Kiwi Music Store",
+    tag: "Full stack / Ecommerce",
+    description: "Tienda musical con catalogo, flujo de compra y una interfaz pensada para mostrar productos con claridad.",
+    image: "./images/Kiwi Music.png",
+    category: ["fullstack", "frontend"],
+    tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
+    links: {
+      live: "https://kiwi-stores.netlify.app",
+      code: "https://github.com/Diegozzzp/Musica-Store"
     }
-  } catch (e) {
-    console.error('No se pudo insertar la tarjeta Rick & Morty:', e);
-  }
-
-  // Filtros de proyectos
-  const filterContainer = document.getElementById('project-filters');
-  const projectCards = document.querySelectorAll('.project-card');
-  if (filterContainer && projectCards.length) {
-    filterContainer.addEventListener('click', (e) => {
-      const btn = e.target.closest('.filter-btn');
-      if (!btn) return;
-      const filter = btn.getAttribute('data-filter');
-      // estado activo
-      filterContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      // filtrar
-      projectCards.forEach(card => {
-        const cats = (card.getAttribute('data-category') || '').split(/\s+/);
-        const visible = filter === 'all' || cats.includes(filter);
-        card.style.display = visible ? '' : 'none';
-      });
-    });
-  }
-
-  // Copiar correo y toast
-  const copyBtn = document.getElementById('copy-email');
-  const toast = document.getElementById('copy-toast');
-  if (copyBtn) {
-    copyBtn.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText('adanmejias908@gmail.com');
-        if (toast) {
-          toast.classList.remove('hidden');
-          setTimeout(() => toast.classList.add('hidden'), 1600);
-        }
-      } catch (err) {
-        console.error('No se pudo copiar el correo', err);
-      }
-    });
-  }
-};
-
-window.addEventListener('scroll', function () {
-  const parallax = document.querySelector('.fondo-opacity');
-  if (parallax) {
-    parallax.style.backgroundPositionY = -(window.scrollY * 0.5) + 'px';
-  }
-  // Mostrar/ocultar boton volver arriba
-  const topBtn = document.getElementById('back-to-top');
-  if (topBtn) {
-    const show = window.scrollY > 400;
-    topBtn.style.opacity = show ? '1' : '0';
-    topBtn.style.pointerEvents = show ? 'auto' : 'none';
-    topBtn.style.transform = show ? 'translateY(0)' : 'translateY(32px)';
-  }
-});
-
-
-// Seleccionamos todas las tarjetas que queremos animar
-const cards = document.querySelectorAll('.card');
-
-// Configuramos las opciones del IntersectionObserver
-const options = {
-  root: null,  // Usa el viewport
-  threshold: 0.1,  // Se activa cuando al menos el 10% de la tarjeta es visible
-};
-
-// Creamos una instancia del IntersectionObserver
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Agrega las clases de animacion de Animate.css cuando la tarjeta es visible
-      entry.target.classList.add('animate__fadeInLeft');  // Puedes cambiar esta animacion por la que desees
-      entry.target.classList.add('animate__animated');
-      // Una vez que la tarjeta ha sido animada, deja de observarla
-      observer.unobserve(entry.target);
+  },
+  {
+    title: "Calendario automatico",
+    tag: "Automatizacion / Google",
+    description: "Automatizacion para organizar tareas y reducir trabajo manual usando Google Apps Script y servicios de Google.",
+    image: "./images/proyecto-script.png",
+    category: ["automation"],
+    tech: ["Apps Script", "Google", "JavaScript", "Automatizacion"],
+    links: {
+      live: "https://script.google.com/macros/s/AKfycbzfrE41jO2ksF6FnMbHq0k9UEewffynZJ6_EAXgkzmMD45vCVDN08ANRiKASV3DMGaQGQ/exec",
+      code: "https://script.google.com/d/1X4F4rxvbE5uVC9eY_3TYNbiv61O_AdRYS1zAhmH21gNGNR2BBEgPAsJp/edit?usp=sharing"
     }
-  });
-}, options);
+  },
+  {
+    title: "Portafolio fotografa",
+    tag: "Frontend / Visual design",
+    description: "Sitio visual para presentar sesiones fotograficas con una experiencia mas editorial y orientada a imagen.",
+    image: "./images/Ana-portafolio.png",
+    category: ["frontend"],
+    tech: ["HTML", "CSS", "JavaScript", "UX/UI"],
+    links: {
+      live: "https://diegozzzp.github.io/Portafolio-Anastacia"
+    }
+  },
+  {
+    title: "Rick & Morty App",
+    tag: "Frontend / API",
+    description: "Aplicacion que consume una API externa para explorar personajes con filtros y tarjetas dinamicas.",
+    image: "./images/ricky-mort-proyecto.png",
+    category: ["frontend"],
+    tech: ["React", "Tailwind", "API externa"],
+    links: {
+      live: "https://magnificent-unicorn-b5f2b0.netlify.app",
+      code: "https://github.com/Diegozzzp/RickmortysApi"
+    }
+  },
+  {
+    title: "Instagram Clone",
+    tag: "Frontend / UI clone",
+    description: "Practica de maquetacion y componentes para replicar patrones visuales de una interfaz social.",
+    image: "./images/Instagram.png",
+    category: ["frontend"],
+    tech: ["HTML", "CSS", "JavaScript"],
+    links: {
+      live: "https://diegozzzp.github.io/Instagram/",
+      code: "https://github.com/Diegozzzp/Instagram"
+    }
+  },
+  {
+    title: "Pokedex",
+    tag: "Frontend / Data UI",
+    description: "Interfaz para consultar y presentar informacion de Pokemon a partir de datos externos.",
+    image: "./images/pokeapi.png",
+    category: ["frontend"],
+    tech: ["JavaScript", "API", "CSS"],
+    links: {
+      code: "https://github.com/Aarevalo3108/PokeAPI"
+    }
+  },
+  {
+    title: "Registro de usuarios",
+    tag: "Backend / Auth",
+    description: "Base de autenticacion y registro para practicar flujos de usuario, validaciones y persistencia.",
+    image: "./images/registro.png",
+    category: ["fullstack"],
+    tech: ["PHP", "MySQL", "Bootstrap", "Auth"],
+    links: {
+      code: "https://github.com/Diegozzzp/registro_login"
+    }
+  },
+  {
+    title: "Proyecto salud",
+    tag: "Frontend / Informativo",
+    description: "Sitio de practica orientado a comunicar servicios e informacion con una estructura clara y usable.",
+    image: "./images/salud.png",
+    category: ["frontend"],
+    tech: ["HTML", "CSS", "JavaScript"],
+    links: {}
+  }
+];
 
-// Observamos cada tarjeta
-cards.forEach(card => {
-  observer.observe(card);
-});
+const grid = document.getElementById("project-grid");
+const filters = document.getElementById("project-filters");
+const menuToggle = document.getElementById("menu-toggle");
+const siteMenu = document.getElementById("site-menu");
+const backToTop = document.getElementById("back-to-top");
+const copyEmail = document.getElementById("copy-email");
+const copyToast = document.getElementById("copy-toast");
 
-// Manejo del menu hamburguesa (solo si existen los elementos)
-const menuToggle = document.getElementById('menu-toggle');
-const mobileMenu = document.getElementById('mobile-menu');
+function createProjectCard(project) {
+  const actions = [];
 
-if (menuToggle && mobileMenu) {
-  menuToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    mobileMenu.classList.toggle('translate-y-full');
+  if (project.links.live) {
+    actions.push(`<a class="project-link" href="${project.links.live}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver sitio</a>`);
+  }
+
+  if (project.links.code) {
+    actions.push(`<a class="project-link" href="${project.links.code}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> Codigo</a>`);
+  }
+
+  if (!actions.length) {
+    actions.push(`<span class="project-link" aria-label="Proyecto sin enlace publico"><i class="fa-solid fa-lock"></i> Privado</span>`);
+  }
+
+  return `
+    <article class="project-card" data-category="${project.category.join(" ")}">
+      <div class="project-card__media">
+        <img src="${project.image}" alt="Captura de ${project.title}" loading="lazy" decoding="async" />
+        <span class="project-card__tag">${project.tag}</span>
+      </div>
+      <div class="project-card__body">
+        <h3>${project.title}</h3>
+        <p>${project.description}</p>
+        <div class="tech-list" aria-label="Tecnologias de ${project.title}">
+          ${project.tech.map((item) => `<span>${item}</span>`).join("")}
+        </div>
+        <div class="project-card__actions">
+          ${actions.join("")}
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function renderProjects(filter = "all") {
+  if (!grid) return;
+
+  const visibleProjects = filter === "all"
+    ? projects
+    : projects.filter((project) => project.category.includes(filter));
+
+  grid.innerHTML = visibleProjects.map(createProjectCard).join("");
+}
+
+function setActiveFilter(button) {
+  if (!filters || !button) return;
+  filters.querySelectorAll(".filter-btn").forEach((item) => item.classList.remove("active"));
+  button.classList.add("active");
+}
+
+renderProjects();
+
+if (filters) {
+  filters.addEventListener("click", (event) => {
+    const button = event.target.closest(".filter-btn");
+    if (!button) return;
+
+    setActiveFilter(button);
+    renderProjects(button.dataset.filter || "all");
   });
 }
 
-// Volver arriba
-document.addEventListener('click', (e) => {
-  const btn = e.target.closest('#back-to-top');
-  if (btn) window.scrollTo({ top: 0, behavior: 'smooth' });
+if (menuToggle && siteMenu) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = siteMenu.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  siteMenu.addEventListener("click", (event) => {
+    if (event.target.closest("a")) {
+      siteMenu.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
+if (copyEmail) {
+  copyEmail.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText("diegoadan.mejias@gmail.com");
+      if (copyToast) {
+        copyToast.classList.add("show");
+        window.setTimeout(() => copyToast.classList.remove("show"), 1700);
+      }
+    } catch (error) {
+      window.location.href = "mailto:diegoadan.mejias@gmail.com";
+    }
+  });
+}
+
+window.addEventListener("scroll", () => {
+  if (!backToTop) return;
+  backToTop.classList.toggle("show", window.scrollY > 420);
 });
 
-
+if (backToTop) {
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
