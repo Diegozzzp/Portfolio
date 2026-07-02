@@ -19,8 +19,8 @@
     category: ["automation"],
     tech: ["Apps Script", "Google", "JavaScript", "Automatizacion"],
     links: {
-      live: "https://script.google.com/macros/s/AKfycbzfrE41jO2ksF6FnMbHq0k9UEewffynZJ6_EAXgkzmMD45vCVDN08ANRiKASV3DMGaQGQ/exec",
-      code: "https://script.google.com/d/1X4F4rxvbE5uVC9eY_3TYNbiv61O_AdRYS1zAhmH21gNGNR2BBEgPAsJp/edit?usp=sharing"
+      live: "https://script.google.com/macros/s/AKfycbyzNtImmhLczw5PrDYUiaImNW3xGQ2ET3_i_5DVSnn3NW60ddbJU412te3FNcLGSOSzDw/exec",
+      code: "https://script.google.com/u/1/home/projects/1ogbdnTtAExEFUCSpMkD3GQ0WbTfaiP5Bj3n5t-wStEOuKUwe1U7M5rTp/edit?hl=es-419"
     }
   },
   {
@@ -179,13 +179,13 @@ if (menuToggle && siteMenu) {
 if (copyEmail) {
   copyEmail.addEventListener("click", async () => {
     try {
-      await navigator.clipboard.writeText("diegoadan.mejias@gmail.com");
+      await navigator.clipboard.writeText("adanmejias908@gmail.com");
       if (copyToast) {
         copyToast.classList.add("show");
         window.setTimeout(() => copyToast.classList.remove("show"), 1700);
       }
     } catch (error) {
-      window.location.href = "mailto:diegoadan.mejias@gmail.com";
+      window.location.href = "mailto:adanmejias908@gmail.com";
     }
   });
 }
